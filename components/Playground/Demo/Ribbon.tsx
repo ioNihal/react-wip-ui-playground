@@ -3,6 +3,8 @@
 import PropTable from "../PropTable";
 import PillToggle from "../PillToggle";
 import CodeChip from "../CodeChip";
+import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Controls";
+import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import { useState } from "react";
 import Tag from "../Tag";
 import { Ribbon } from "react-wip-ui";
@@ -14,52 +16,55 @@ export default function RibbonDemo() {
     const [disabled, setDisabled] = useState(false);
 
     return (
-        <div className="card fade-up">
-            <div className="card-header">
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                    <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                            <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "1rem" }}>Ribbon</h3>
+        <DemoCard className="fade-up">
+            <DemoCardHeader>
+                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                    <div className="grid gap-1.5">
+                        <div className="flex items-center gap-2.5">
+                            <h3 className="font-(--font-sans) text-[1rem]">Ribbon</h3>
                             <Tag type="server" />
                         </div>
-                        <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
                             A diagonal corner ribbon for any positioned container.
                         </p>
                     </div>
                     <CodeChip>{"<Ribbon />"}</CodeChip>
                 </div>
-            </div>
+            </DemoCardHeader>
 
-            <div className="card-body">
-                <div className="controls-row" style={{ marginBottom: 20, rowGap: 10 }}>
-                    <span className="ctrl-label">Position</span>
-                    <PillToggle
-                        options={[{ label: "Top Left", value: "top-left" }, { label: "Top Right", value: "top-right" }]}
-                        value={position}
-                        onChange={setPosition}
-                    />
-                    <span className="ctrl-label">Variant</span>
-                    <PillToggle
-                        options={[{ label: "Solid", value: "solid" }, { label: "Outline", value: "outline" }]}
-                        value={variant}
-                        onChange={setVariant}
-                    />
-                    <input
-                        className="ctrl-input"
-                        value={text}
-                        maxLength={12}
-                        onChange={(e) => setText(e.target.value)}
-                        placeholder="Label"
-                        style={{ width: 100 }}
-                    />
-                    <label className="ctrl-check">
-                        <input
-                            type="checkbox"
-                            checked={disabled}
-                            onChange={(e) => setDisabled(e.target.checked)}
+            <DemoCardBody>
+                <div className="mb-5 flex flex-col gap-3 max-[640px]:mb-4 max-[640px]:gap-2.5">
+                    <ControlsRow>
+                        <ControlLabel>Position</ControlLabel>
+                        <PillToggle
+                            options={[{ label: "Top Left", value: "top-left" }, { label: "Top Right", value: "top-right" }]}
+                            value={position}
+                            onChange={setPosition}
                         />
-                        Disabled
-                    </label>
+                        <ControlLabel>Variant</ControlLabel>
+                        <PillToggle
+                            options={[{ label: "Solid", value: "solid" }, { label: "Outline", value: "outline" }]}
+                            value={variant}
+                            onChange={setVariant}
+                        />
+                    </ControlsRow>
+                    <ControlsRow>
+                        <ControlInput
+                            className="w-full sm:w-25"
+                            value={text}
+                            maxLength={12}
+                            onChange={(e) => setText(e.target.value)}
+                            placeholder="Label"
+                        />
+                        <ControlCheck>
+                            <input
+                                type="checkbox"
+                                checked={disabled}
+                                onChange={(e) => setDisabled(e.target.checked)}
+                            />
+                            Disabled
+                        </ControlCheck>
+                    </ControlsRow>
                 </div>
 
                 <div className="preview-area">
@@ -82,9 +87,9 @@ export default function RibbonDemo() {
                         <Ribbon position={position} text={text || "WIP"} variant={variant} disabled={disabled} />
                     </div>
                 </div>
-            </div>
+            </DemoCardBody>
 
-            <div className="card-footer">
+            <DemoCardFooter>
                 <PropTable
                     rows={[
                         { prop: "position", type: '"top-left" | "top-right"', default: '"top-right"', description: "Which corner the ribbon appears in" },
@@ -93,7 +98,7 @@ export default function RibbonDemo() {
                         { prop: "disabled", type: "boolean", default: "false", description: "When true, renders nothing" },
                     ]}
                 />
-            </div>
-        </div>
+            </DemoCardFooter>
+        </DemoCard>
     );
 }

@@ -1,36 +1,39 @@
 "use client";
+
 import { useState } from "react";
-import Tag from "../Tag";
-import CodeChip from "../CodeChip";
 import { WIP } from "react-wip-ui/client";
+import CodeChip from "../CodeChip";
+import { ControlCheck, ControlsRow } from "../Controls";
+import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
+import Tag from "../Tag";
 
 export default function WIPDemo() {
     const [when, setWhen] = useState(true);
 
     return (
-        <div className="card fade-up delay-2">
-            <div className="card-header">
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                    <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                            <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "1rem" }}>WIP Wrapper</h3>
+        <DemoCard className="fade-up delay-2">
+            <DemoCardHeader>
+                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                    <div className="grid gap-1.5">
+                        <div className="flex items-center gap-2.5">
+                            <h3 className="font-(--font-sans) text-[1rem]">WIP Wrapper</h3>
                             <Tag type="client" />
                         </div>
-                        <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
-                            Composable wrapper — conditional WIP treatment.
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                            Composable wrapper with conditional WIP treatment.
                         </p>
                     </div>
-                    <CodeChip>{"<WIP when={…} />"}</CodeChip>
+                    <CodeChip>{"<WIP when={...} />"}</CodeChip>
                 </div>
-            </div>
+            </DemoCardHeader>
 
-            <div className="card-body">
-                <div className="controls-row" style={{ marginBottom: 20 }}>
-                    <label className="ctrl-check" style={{ fontSize: "0.88rem", color: "var(--text-primary)", fontWeight: 500 }}>
-                        <input type="checkbox" checked={when} onChange={(e) => setWhen(e.target.checked)} />
+            <DemoCardBody>
+                <ControlsRow className="mb-5">
+                    <ControlCheck className="text-[0.88rem] font-medium text-(--text-primary)">
+                        <input type="checkbox" checked={when} onChange={(event) => setWhen(event.target.checked)} />
                         WIP active
-                    </label>
+                    </ControlCheck>
                     <span
                         style={{
                             display: "inline-flex",
@@ -45,9 +48,9 @@ export default function WIPDemo() {
                             border: `1.5px solid ${when ? "#E8C8A0" : "#BCDAB4"}`,
                         }}
                     >
-                        {when ? "⚠ WIP active" : "✓ Live"}
+                        {when ? "WIP active" : "Live"}
                     </span>
-                </div>
+                </ControlsRow>
 
                 <div className="preview-area">
                     <WIP when={when}>
@@ -69,16 +72,16 @@ export default function WIPDemo() {
                         </div>
                     </WIP>
                 </div>
-            </div>
+            </DemoCardBody>
 
-            <div className="card-footer">
+            <DemoCardFooter>
                 <PropTable
                     rows={[
                         { prop: "when", type: "boolean", default: "true", description: "Activates WIP styling when true" },
                         { prop: "children", type: "ReactNode", description: "Feature being marked as WIP" },
                     ]}
                 />
-            </div>
-        </div>
+            </DemoCardFooter>
+        </DemoCard>
     );
 }

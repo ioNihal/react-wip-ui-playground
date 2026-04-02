@@ -1,5 +1,3 @@
-
-/*  Component list  */
 const COMPONENTS = [
     { name: "Ribbon", type: "server", desc: "Corner diagonal ribbon" },
     { name: "Badge", type: "server", desc: "Inline WIP label" },
@@ -14,55 +12,47 @@ const COMPONENTS = [
 export default function ComponentsPills() {
     return (
         <section
-            style={{
-                padding: "0 clamp(20px, 6vw, 100px) clamp(40px, 6vw, 70px)",
-                textAlign: "center",
-            }}
+            className="text-center"
+            style={{ padding: "0 clamp(20px, 6vw, 100px) clamp(40px, 6vw, 70px)" }}
         >
             <p
+                className="mb-4.5"
                 style={{
                     fontSize: "0.72rem",
                     fontWeight: 700,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     color: "var(--text-subtle)",
-                    marginBottom: 18,
                 }}
             >
-                8 components — Server & Client
+                8 components, server and client
             </p>
-            <div
-                style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 10,
-                    justifyContent: "center",
-                }}
-            >
-                {COMPONENTS.map((c, i) => (
+            <div className="flex flex-wrap justify-center gap-2.5">
+                {COMPONENTS.map((component, index) => (
                     <div
-                        key={c.name}
-                        className={`component-pill fade-up delay-${Math.min(i + 1, 5)}`}
+                        key={component.name}
+                        className={`component-pill fade-up delay-${Math.min(index + 1, 5)}`}
                     >
                         <span
                             style={{
                                 width: 6,
                                 height: 6,
                                 borderRadius: "50%",
-                                background:
-                                    c.type === "server" ? "#5A8A50" : "#4A7A8A",
+                                background: component.type === "server" ? "#5A8A50" : "#4A7A8A",
                                 flexShrink: 0,
                             }}
                         />
                         <span style={{ fontFamily: "monospace", fontWeight: 600, fontSize: "0.82rem" }}>
-                            {"<"}{c.name}{" />"}
+                            {"<"}
+                            {component.name}
+                            {" />"}
                         </span>
                         <span style={{ color: "var(--text-subtle)", fontSize: "0.75rem" }}>
-                            {c.desc}
+                            {component.desc}
                         </span>
                     </div>
                 ))}
             </div>
         </section>
-    )
+    );
 }

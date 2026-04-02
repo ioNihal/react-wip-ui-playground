@@ -8,11 +8,14 @@ export default function PillToggle<T extends string>({
     onChange: (v: T) => void;
 }) {
     return (
-        <div className="pill-toggle">
+        <div className="inline-flex gap-0.5 rounded-full border-[1.5px] border-(--border)var(--bg-muted)] p-0.75">
             {options.map((o) => (
                 <button
                     key={o.value}
-                    className={value === o.value ? "active" : ""}
+                    className={`rounded-full px-3.25ypy-1.25ext-[0.78rem] font-semibold leading-none transition-all ${value === o.value
+                        ? "bg-white text-(--accent-dark) shadow-(--shadow-xs)"
+                        : "bg-transparent text-(--text-muted)"
+                        }`}
                     onClick={() => onChange(o.value)}
                 >
                     {o.label}

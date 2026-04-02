@@ -2,6 +2,8 @@
 import { Badge } from "react-wip-ui";
 import PropTable from "../PropTable";
 import CodeChip from "../CodeChip";
+import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Controls";
+import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import { useState } from "react";
 import Tag from "../Tag";
 
@@ -10,41 +12,40 @@ export default function BadgeDemo() {
     const [disabled, setDisabled] = useState(false);
 
     return (
-        <div className="card fade-up delay-1">
-            <div className="card-header">
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                    <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                            <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "1rem" }}>Badge</h3>
+        <DemoCard>
+            <DemoCardHeader>
+                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                    <div className="grid gap-1.5">
+                        <div className="flex items-center gap-2.5">
+                            <h3 className="font-(--font-sans) text-[1rem]">Badge</h3>
                             <Tag type="server" />
                         </div>
-                        <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
                             Inline label that attaches to any child element.
                         </p>
                     </div>
                     <CodeChip>{"<Badge />"}</CodeChip>
                 </div>
-            </div>
+            </DemoCardHeader>
 
-            <div className="card-body">
-                <div className="controls-row" style={{ marginBottom: 20 }}>
-                    <span className="ctrl-label">Text</span>
-                    <input
-                        className="ctrl-input"
+            <DemoCardBody>
+                <ControlsRow className="mb-5">
+                    <ControlLabel>Text</ControlLabel>
+                    <ControlInput
+                        className="w-full sm:w-30"
                         value={text}
                         maxLength={16}
                         onChange={(e) => setText(e.target.value)}
                         placeholder="Badge label"
-                        style={{ width: 120 }}
                     />
-                    <label className="ctrl-check">
+                    <ControlCheck>
                         <input type="checkbox" checked={disabled} onChange={(e) => setDisabled(e.target.checked)} />
                         Disabled
-                    </label>
-                </div>
+                    </ControlCheck>
+                </ControlsRow>
 
-                <div className="preview-area" style={{ flexDirection: "column", alignItems: "flex-start", padding: "24px 28px" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div className="preview-area flex-col items-start px-7 py-6">
+                    <div className="flex flex-col gap-3.5">
                         <Badge text={text || "WIP"} disabled={disabled}>
                             <button style={{ padding: "8px 18px", borderRadius: "var(--radius-sm)", border: "1.5px solid var(--border)", background: "white", fontSize: "0.85rem", cursor: "pointer", color: "var(--text-primary)" }}>
                                 Pro Feature
@@ -63,9 +64,9 @@ export default function BadgeDemo() {
                         </Badge>
                     </div>
                 </div>
-            </div>
+            </DemoCardBody>
 
-            <div className="card-footer">
+            <DemoCardFooter>
                 <PropTable
                     rows={[
                         { prop: "text", type: "string", default: '"WIP"', description: "Label shown in the pill" },
@@ -73,7 +74,7 @@ export default function BadgeDemo() {
                         { prop: "children", type: "ReactNode", description: "Element to badge" },
                     ]}
                 />
-            </div>
-        </div>
+            </DemoCardFooter>
+        </DemoCard>
     );
 }

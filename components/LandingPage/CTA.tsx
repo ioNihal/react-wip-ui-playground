@@ -1,11 +1,11 @@
 import Link from "next/link";
 import CopyButton from "../CopyButton";
-
+import InstallBar from "../InstallBar";
 
 export default function CTA() {
     return (
         <section className="cta-section">
-            <div style={{ position: "relative", maxWidth: 600, margin: "0 auto" }}>
+            <div className="relative mx-auto max-w-[600px]">
                 <div
                     style={{
                         display: "inline-flex",
@@ -23,7 +23,7 @@ export default function CTA() {
                         marginBottom: 20,
                     }}
                 >
-                    Open source · MIT License
+                    Open source | MIT License
                 </div>
                 <h2
                     style={{
@@ -47,25 +47,15 @@ export default function CTA() {
                 >
                     Install react-wip-ui and start marking features in seconds.
                 </p>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: 16,
-                    }}
-                >
-                    <div className="install-bar justify-between">
-                        <div className="install-bar__code">
+                <div className="flex flex-col items-center gap-4">
+                    <InstallBar action={<CopyButton text="npm install react-wip-ui" />}>
                             <span style={{ color: "#668855" }}>$</span>{" "}
                             <span style={{ color: "#C8D9B4" }}>npm install</span>{" "}
                             <span style={{ color: "#B4CCA0" }}>react-wip-ui</span>
-                        </div>
-                        <CopyButton text="npm install react-wip-ui" />
-                    </div>
-                    <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+                    </InstallBar>
+                    <div className="flex flex-wrap justify-center gap-3">
                         <Link href="/playground" className="btn btn-lg" style={{ background: "var(--accent-light)", color: "var(--accent-dark)", border: "none" }}>
-                            Open Playground →
+                            Open Playground
                         </Link>
                         <a
                             href="https://www.npmjs.com/package/react-wip-ui"
@@ -82,5 +72,5 @@ export default function CTA() {
                 </div>
             </div>
         </section>
-    )
+    );
 }

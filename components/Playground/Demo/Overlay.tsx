@@ -1,47 +1,52 @@
 "use client";
 
-import { Overlay } from "react-wip-ui";
-import PropTable from "../PropTable";
-import CodeChip from "../CodeChip";
-import Tag from "../Tag";
 import { useState } from "react";
+import { Overlay } from "react-wip-ui";
+import CodeChip from "../CodeChip";
+import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Controls";
+import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
+import PropTable from "../PropTable";
+import Tag from "../Tag";
 
 export default function OverlayDemo() {
     const [message, setMessage] = useState("Coming Soon");
     const [disabled, setDisabled] = useState(false);
 
     return (
-        <div className="card fade-up delay-2">
-            <div className="card-header">
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                    <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                            <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "1rem" }}>Overlay</h3>
+        <DemoCard className="fade-up delay-2">
+            <DemoCardHeader>
+                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                    <div className="grid gap-1.5">
+                        <div className="flex items-center gap-2.5">
+                            <h3 className="font-(--font-sans) text-[1rem]">Overlay</h3>
                             <Tag type="server" />
                         </div>
-                        <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
                             Frosted glass overlay that blurs child content.
                         </p>
                     </div>
                     <CodeChip>{"<Overlay />"}</CodeChip>
                 </div>
-            </div>
+            </DemoCardHeader>
 
-            <div className="card-body">
-                <div className="controls-row" style={{ marginBottom: 20 }}>
-                    <span className="ctrl-label">Message</span>
-                    <input
-                        className="ctrl-input"
+            <DemoCardBody>
+                <ControlsRow className="mb-5">
+                    <ControlLabel>Message</ControlLabel>
+                    <ControlInput
+                        className="min-w-0 flex-1 sm:max-w-50"
                         value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        onChange={(event) => setMessage(event.target.value)}
                         placeholder="Overlay message"
-                        style={{ width: 200 }}
                     />
-                    <label className="ctrl-check">
-                        <input type="checkbox" checked={disabled} onChange={(e) => setDisabled(e.target.checked)} />
+                    <ControlCheck>
+                        <input
+                            type="checkbox"
+                            checked={disabled}
+                            onChange={(event) => setDisabled(event.target.checked)}
+                        />
                         Disabled
-                    </label>
-                </div>
+                    </ControlCheck>
+                </ControlsRow>
 
                 <div className="preview-area">
                     <Overlay message={message || "Coming Soon"} disabled={disabled}>
@@ -49,16 +54,19 @@ export default function OverlayDemo() {
                             <label className="mock-label">Email</label>
                             <input className="mock-input" defaultValue="user@example.com" readOnly />
                             <label className="mock-label">Plan</label>
-                            <input className="mock-input" defaultValue="Pro — $29/mo" readOnly />
-                            <div style={{ marginTop: 8, padding: "8px", background: "var(--accent)", color: "white", borderRadius: "var(--radius-sm)", fontSize: "0.8rem", textAlign: "center" }}>
+                            <input className="mock-input" defaultValue="Pro - $29/mo" readOnly />
+                            <div
+                                className="mt-2 rounded-sm px-2 py-2 text-center text-[0.8rem] text-white"
+                                style={{ background: "var(--accent)" }}
+                            >
                                 Save Changes
                             </div>
                         </div>
                     </Overlay>
                 </div>
-            </div>
+            </DemoCardBody>
 
-            <div className="card-footer">
+            <DemoCardFooter>
                 <PropTable
                     rows={[
                         { prop: "message", type: "string", default: '"Coming Soon"', description: "Text in the overlay pill" },
@@ -66,7 +74,7 @@ export default function OverlayDemo() {
                         { prop: "children", type: "ReactNode", description: "Content underneath the overlay" },
                     ]}
                 />
-            </div>
-        </div>
+            </DemoCardFooter>
+        </DemoCard>
     );
 }

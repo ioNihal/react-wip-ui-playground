@@ -1,54 +1,58 @@
 "use client";
+
 import { useState } from "react";
-import Tag from "../Tag";
-import CodeChip from "../CodeChip";
-import PillToggle from "../PillToggle";
 import { useWIP, WIP, WIPProvider } from "react-wip-ui/client";
+import CodeChip from "../CodeChip";
+import { ControlCheck, ControlLabel, ControlsRow } from "../Controls";
+import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
+import PillToggle from "../PillToggle";
 import PropTable from "../PropTable";
+import Tag from "../Tag";
 
 export default function ProviderDemo() {
     const [globalDisabled, setGlobalDisabled] = useState(false);
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
     return (
-        <div className="card fade-up delay-3">
-            <div className="card-header">
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                    <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                            <h3 style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "1rem" }}>WIPProvider + useWIP</h3>
+        <DemoCard>
+            <DemoCardHeader>
+                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                    <div className="grid gap-1.5">
+                        <div className="flex items-center gap-2.5">
+                            <h3 className="font-(--font-sans) text-[1rem]">WIPProvider + useWIP</h3>
                             <Tag type="client" />
                         </div>
-                        <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
-                            Global context — disable all WIP components at once.
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                            Global context to disable all WIP components at once.
                         </p>
                     </div>
                     <CodeChip>{"<WIPProvider />"}</CodeChip>
                 </div>
-            </div>
+            </DemoCardHeader>
 
-            <div className="card-body">
-                <div className="controls-row" style={{ marginBottom: 20 }}>
-                    <span className="ctrl-label">Theme</span>
+            <DemoCardBody>
+                <ControlsRow className="mb-5">
+                    <ControlLabel>Theme</ControlLabel>
                     <PillToggle
                         options={[{ label: "Light", value: "light" }, { label: "Dark", value: "dark" }]}
                         value={theme}
                         onChange={setTheme}
                     />
-                    <label className="ctrl-check">
-                        <input type="checkbox" checked={globalDisabled} onChange={(e) => setGlobalDisabled(e.target.checked)} />
+                    <ControlCheck>
+                        <input type="checkbox" checked={globalDisabled} onChange={(event) => setGlobalDisabled(event.target.checked)} />
                         globalDisabled (prod mode)
-                    </label>
-                </div>
+                    </ControlCheck>
+                </ControlsRow>
 
-                <div className="preview-area" style={{ flexDirection: "column", gap: 14 }}>
+                <div className="preview-area flex-col gap-3.5">
                     <WIPProvider theme={theme} globalDisabled={globalDisabled}>
                         <ProviderInner globalDisabled={globalDisabled} theme={theme} />
                     </WIPProvider>
                 </div>
 
                 <div
-                    style={{ marginTop: 14, padding: "12px 16px", background: "var(--bg-dark)", borderRadius: "var(--radius-md)", fontFamily: "monospace", fontSize: "0.78rem", color: "#C8D9B4", border: "1px solid var(--border-dark)", lineHeight: 1.8 }}
+                    className="mt-4 rounded-md border border-(--border-dark) px-4 py-3 text-[0.78rem] leading-[1.8] text-[#C8D9B4]"
+                    style={{ background: "var(--bg-dark)", fontFamily: "monospace" }}
                 >
                     <span style={{ color: "#A8C890" }}>{"<WIPProvider"}</span>
                     {" "}
@@ -62,9 +66,9 @@ export default function ProviderDemo() {
                     <span style={{ color: "#C8D9B4" }}>{"}"}</span>
                     <span style={{ color: "#A8C890" }}>{">"}</span>
                 </div>
-            </div>
+            </DemoCardBody>
 
-            <div className="card-footer">
+            <DemoCardFooter>
                 <PropTable
                     rows={[
                         { prop: "theme", type: '"light" | "dark"', default: '"light"', description: "Sets CSS custom props for all WIP children" },
@@ -72,16 +76,16 @@ export default function ProviderDemo() {
                         { prop: "defaultVariant", type: '"overlay" | "block" | "ribbon" | "badge"', description: "Default WIP variant for <WIP /> wrappers" },
                     ]}
                 />
-            </div>
-        </div>
+            </DemoCardFooter>
+        </DemoCard>
     );
 }
 
-
 function ProviderInner({ globalDisabled, theme }: { globalDisabled: boolean; theme: string }) {
     const ctx = useWIP();
+
     return (
-        <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%", maxWidth: 360 }}>
+        <div className="flex w-full max-w-90 flex-col gap-3">
             <div
                 style={{
                     padding: "12px 14px",
@@ -113,7 +117,7 @@ function ProviderInner({ globalDisabled, theme }: { globalDisabled: boolean; the
 
             {globalDisabled && (
                 <div style={{ fontSize: "0.78rem", color: "#3A7035", background: "#EBF4E8", borderRadius: "var(--radius-sm)", padding: "8px 12px", border: "1px solid #BCDAB4" }}>
-                    ✓ globalDisabled — WIP removed everywhere
+                    globalDisabled: WIP removed everywhere
                 </div>
             )}
         </div>
