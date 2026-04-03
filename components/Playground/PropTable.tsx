@@ -9,8 +9,8 @@ type PropRow = {
 
 export default function PropTable({ rows }: { rows: PropRow[] }) {
     return (
-        <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-sm">
+        <div className="max-w-full overflow-x-auto">
+            <table className="min-w-full border-collapse text-sm">
                 <thead>
                     <tr>
                         {["Prop", "Type", "Default", "Description"].map((header) => (
@@ -24,16 +24,16 @@ export default function PropTable({ rows }: { rows: PropRow[] }) {
                 <tbody>
                     {rows.map((row) => (
                         <tr key={row.prop}>
-                            <td className="border-b border-(--border) px-3 py-2.25">
+                            <td className="border-b border-(--border) px-3 py-2.25 text-nowrap">
                                 <CodeChip>{row.prop}</CodeChip>
                             </td>
-                            <td className="border-b border-(--border) px-3 py-2.25 font-mono text-xs text-(--accent-dark)">
+                            <td className="border-b border-(--border) px-3 py-2.25 text-nowrap font-mono text-xs text-(--accent-dark)">
                                 {row.type}
                             </td>
-                            <td className="border-b border-(--border) px-3 py-2.25 font-mono text-xs text-(--text-subtle)">
+                            <td className="border-b border-(--border) px-3 py-2.25 text-nowrap font-mono text-xs text-(--text-subtle)">
                                 {row.default ?? "-"}
                             </td>
-                            <td className="border-b border-(--border) px-3 py-2.25 text-xs text-(--text-muted)">
+                            <td className="border-b border-(--border) px-3 py-2.25 text-nowrap text-xs text-(--text-muted)">
                                 {row.description}
                             </td>
                         </tr>

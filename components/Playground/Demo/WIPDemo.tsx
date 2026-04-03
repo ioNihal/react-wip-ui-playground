@@ -14,7 +14,7 @@ export default function WIPDemo() {
     return (
         <DemoCard className="animate-fade-up">
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
                             <h3 className="font-sans text-lg tracking-wide">WIP Wrapper</h3>

@@ -15,7 +15,7 @@ export default function BadgeDemo() {
     return (
         <DemoCard>
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
                             <h3 className="font-sans text-lg tracking-wide">Badge</h3>
@@ -65,6 +65,12 @@ export default function BadgeDemo() {
                                 Side nav link
                             </div>
                         </Badge>
+
+                        {disabled && (
+                            <div className="text-sm text-(--text-muted)">
+                                The badge and the feature is hidden when disabled, but the child element is still interactive.
+                            </div>
+                        )}
                     </div>
                 </div>
             </DemoCardBody>

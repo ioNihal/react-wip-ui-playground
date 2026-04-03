@@ -16,14 +16,14 @@ export default function ProviderDemo() {
     return (
         <DemoCard>
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-sans text-lg tracking-wide">WIPProvider + useWIP</h3>
+                            <h3 className="font-sans text-lg tracking-wide">WIPProvider</h3>
                             <Tag type="client" />
                         </div>
                         <p className="text-sm text-(--text-muted)">
-                            Global context to disable all WIP components at once.
+                            Global context to disable all WIP components at once. It is used with <code>useWIP()</code> hook inside WIP children.
                         </p>
                     </div>
                     <CodeChip>{"<WIPProvider />"}</CodeChip>
@@ -100,11 +100,11 @@ function ProviderInner({ globalDisabled, theme }: { globalDisabled: boolean; the
 
             <div
                 data-rwip-theme={theme === "dark" ? "dark" : undefined}
-                className="relative rounded-md border border-(--border) overflow-hidden"
+                className="relative rounded-md border border-(--border) overflow-hidden p-2"
                 style={{ background: theme === "dark" ? "#1A1918" : "white" }}
             >
                 <WIP when={!globalDisabled}>
-                    <div className="p-4 text-sm" style={{ color: theme === "dark" ? "#C4B9AD" : "var(--text-muted)" }}>
+                    <div className="text-sm" style={{ color: theme === "dark" ? "#C4B9AD" : "var(--text-muted)" }}>
                         Premium feature content lives here
                     </div>
                 </WIP>

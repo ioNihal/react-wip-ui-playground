@@ -76,7 +76,7 @@ export default function Playground() {
       </div>
 
       {/* MAIN PANEL */}
-      <div className="flex flex-1 flex-col">
+      <div className="flex min-w-0 flex-1 flex-col">
 
         {/* MOBILE TOPBAR */}
         <div className="sticky top-0 z-20 flex items-center justify-between 
@@ -93,9 +93,9 @@ export default function Playground() {
         {/* SCROLLABLE CONTENT */}
         <main
           id="main-scroll"
-          className="flex-1 overflow-y-auto"
+          className="min-w-0 flex-1 overflow-y-auto"
         >
-          <div className="mx-auto w-full max-w-5xl px-6 py-8">
+          <div className="mx-auto min-w-0 w-full max-w-5xl px-4 md:px-6 py-8">
 
             {/* HEADER */}
             <div className="mb-8 border-b border-(--border) pb-6">

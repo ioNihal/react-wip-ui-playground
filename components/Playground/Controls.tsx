@@ -1,7 +1,7 @@
 import type { InputHTMLAttributes, ReactNode } from "react";
 
 export function ControlsRow({ children, className = "" }: { children: ReactNode; className?: string }) {
-    return <div className={`flex flex-wrap items-center gap-2.5 gap-y-2.5 max-[640px]:items-start ${className}`}>{children}</div>;
+    return <div className={`flex flex-col md:flex-row items-center gap-2.5 gap-y-2.5 max-[640px]:items-start ${className}`}>{children}</div>;
 }
 
 export function ControlLabel({ children }: { children: ReactNode }) {

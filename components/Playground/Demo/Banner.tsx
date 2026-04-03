@@ -18,7 +18,7 @@ export default function BannerDemo() {
     return (
         <DemoCard className="animate-fade-up">
             <DemoCardHeader>
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
                             <h3 className="font-sans text-lg tracking-wide">Banner</h3>
@@ -55,7 +55,7 @@ export default function BannerDemo() {
                             />
                             Dismissible
                         </ControlCheck>
-                        <button className="inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition-all duration-200
+                        <button className="self-end md:self-auto inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition-all duration-200
                             bg-transparent text-(--text-muted) hover:bg-(--bg-muted) hover:text-(--text-primary)"
                             onClick={() => setKey((current) => current + 1)}>
                             Reset

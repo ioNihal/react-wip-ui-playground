@@ -14,7 +14,7 @@ export default function BlockDemo() {
     return (
         <DemoCard >
             <DemoCardHeader>
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
                             <h3 className="font-sans text-lg tracking-wide">Block</h3>
@@ -36,7 +36,7 @@ export default function BlockDemo() {
                     </ControlCheck>
                 </ControlsRow>
 
-                <div className="flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
                     bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
                     <Block disabled={disabled}>
                         <div className="rounded-md border border-(--border) bg-white p-4 shadow-(--shadow-xs)" style={{ opacity: disabled ? 1 : 0.65 }}>

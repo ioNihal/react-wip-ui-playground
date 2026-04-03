@@ -16,7 +16,7 @@ export default function ModalDemo() {
     return (
         <DemoCard>
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
                             <h3 className="font-sans text-lg tracking-wide">Modal</h3>
