@@ -6,21 +6,22 @@ import CodeChip from "../CodeChip";
 import { ControlCheck, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
+import { delayClass, fadeUpClass, mockCardClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function WIPDemo() {
     const [when, setWhen] = useState(true);
 
     return (
-        <DemoCard className="fade-up delay-2">
+        <DemoCard className={`${fadeUpClass} ${delayClass(2)}`}>
             <DemoCardHeader>
                 <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-(--font-sans) text-[1rem]">WIP Wrapper</h3>
+                            <h3 className="font-sans text-[1rem]">WIP Wrapper</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
                             Composable wrapper with conditional WIP treatment.
                         </p>
                     </div>
@@ -30,7 +31,7 @@ export default function WIPDemo() {
 
             <DemoCardBody>
                 <ControlsRow className="mb-5">
-                    <ControlCheck className="text-[0.88rem] font-medium text-(--text-primary)">
+                    <ControlCheck className="text-[0.88rem] font-medium text-[var(--text-primary)]">
                         <input type="checkbox" checked={when} onChange={(event) => setWhen(event.target.checked)} />
                         WIP active
                     </ControlCheck>
@@ -52,10 +53,10 @@ export default function WIPDemo() {
                     </span>
                 </ControlsRow>
 
-                <div className="preview-area">
+                <div className={previewAreaClass}>
                     <WIP when={when}>
-                        <div className="mock-card" style={{ width: 210 }}>
-                            <div style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-subtle)", marginBottom: 10 }}>
+                        <div className={`${mockCardClass} w-[210px]`}>
+                            <div className="mb-2.5 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-[var(--text-subtle)]">
                                 New Dashboard
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>

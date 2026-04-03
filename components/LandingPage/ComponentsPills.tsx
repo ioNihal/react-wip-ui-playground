@@ -1,3 +1,5 @@
+
+
 const COMPONENTS = [
     { name: "Ribbon", type: "server", desc: "Corner diagonal ribbon" },
     { name: "Badge", type: "server", desc: "Inline WIP label" },
@@ -11,43 +13,27 @@ const COMPONENTS = [
 
 export default function ComponentsPills() {
     return (
-        <section
-            className="text-center"
-            style={{ padding: "0 clamp(20px, 6vw, 100px) clamp(40px, 6vw, 70px)" }}
-        >
-            <p
-                className="mb-4.5"
-                style={{
-                    fontSize: "0.72rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "var(--text-subtle)",
-                }}
-            >
+        <section className="px-4 md:px-6 py-10 text-center">
+            <p className="mb-6 text-sm lg:text-base font-bold uppercase text-(--text-subtle)">
                 8 components, server and client
             </p>
-            <div className="flex flex-wrap justify-center gap-2.5">
-                {COMPONENTS.map((component, index) => (
+            <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+                {COMPONENTS.map((component, i) => (
                     <div
                         key={component.name}
-                        className={`component-pill fade-up delay-${Math.min(index + 1, 5)}`}
+                        className={`animate-fade-up [animation-delay:${i * 0.15}s] flex flex-wrap w-full md:w-auto items-center gap-2 rounded-full 
+                        border border-(--border) bg-(--bg-card) px-4 py-2 text-(--text-primary) transition-all
+                         hover:border-(--accent) hover:bg-(--accent-glow) hover:text-(--accent-dark)`}
                     >
                         <span
-                            style={{
-                                width: 6,
-                                height: 6,
-                                borderRadius: "50%",
-                                background: component.type === "server" ? "#5A8A50" : "#4A7A8A",
-                                flexShrink: 0,
-                            }}
+                            className={`h-1.5 w-1.5 shrink-0 rounded-full ${component.type === "server" ? "bg-(--success)" : "bg-(--info)"}`}
                         />
-                        <span style={{ fontFamily: "monospace", fontWeight: 600, fontSize: "0.82rem" }}>
+                        <span className="font-mono text-[0.82rem] font-semibold">
                             {"<"}
                             {component.name}
                             {" />"}
                         </span>
-                        <span style={{ color: "var(--text-subtle)", fontSize: "0.75rem" }}>
+                        <span className="text-[0.75rem] text-(--text-subtle)">
                             {component.desc}
                         </span>
                     </div>

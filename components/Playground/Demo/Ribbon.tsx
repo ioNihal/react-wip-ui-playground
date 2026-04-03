@@ -6,6 +6,7 @@ import CodeChip from "../CodeChip";
 import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import { useState } from "react";
+import { fadeUpClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 import { Ribbon } from "react-wip-ui";
 
@@ -16,15 +17,15 @@ export default function RibbonDemo() {
     const [disabled, setDisabled] = useState(false);
 
     return (
-        <DemoCard className="fade-up">
+        <DemoCard className={fadeUpClass}>
             <DemoCardHeader>
                 <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-(--font-sans) text-[1rem]">Ribbon</h3>
+                            <h3 className="font-sans text-[1rem]">Ribbon</h3>
                             <Tag type="server" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
                             A diagonal corner ribbon for any positioned container.
                         </p>
                     </div>
@@ -67,7 +68,7 @@ export default function RibbonDemo() {
                     </ControlsRow>
                 </div>
 
-                <div className="preview-area">
+                <div className={previewAreaClass}>
                     <div
                         style={{
                             position: "relative",
@@ -83,7 +84,7 @@ export default function RibbonDemo() {
                             boxShadow: "var(--shadow-sm)",
                         }}
                     >
-                        <span style={{ fontSize: "0.8rem", color: "var(--text-subtle)" }}>Card content</span>
+                        <span className="text-[0.8rem] text-[var(--text-subtle)]">Card content</span>
                         <Ribbon position={position} text={text || "WIP"} variant={variant} disabled={disabled} />
                     </div>
                 </div>

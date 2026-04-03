@@ -7,6 +7,7 @@ import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Contro
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PillToggle from "../PillToggle";
 import PropTable from "../PropTable";
+import { buttonBaseClass, buttonGhostClass, buttonSmClass, fadeUpClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function BannerDemo() {
@@ -16,15 +17,15 @@ export default function BannerDemo() {
     const [key, setKey] = useState(0);
 
     return (
-        <DemoCard className="fade-up">
+        <DemoCard className={fadeUpClass}>
             <DemoCardHeader>
                 <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-(--font-sans) text-[1rem]">Banner</h3>
+                            <h3 className="font-sans text-[1rem]">Banner</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
                             Announcement bar with sticky or relative positioning.
                         </p>
                     </div>
@@ -55,7 +56,7 @@ export default function BannerDemo() {
                             />
                             Dismissible
                         </ControlCheck>
-                        <button className="btn btn-ghost btn-sm" onClick={() => setKey((current) => current + 1)}>
+                        <button className={`${buttonBaseClass} ${buttonGhostClass} ${buttonSmClass}`} onClick={() => setKey((current) => current + 1)}>
                             Reset
                         </button>
                     </ControlsRow>
@@ -68,10 +69,10 @@ export default function BannerDemo() {
                         />
                     </ControlsRow>
                 </div>
-                <div className="preview-area flex-col p-0">
-                    <div className="w-full overflow-hidden rounded-md border border-(--border) bg-white">
+                <div className={`${previewAreaClass} flex-col p-0`}>
+                    <div className="w-full overflow-hidden rounded-md border border-[var(--border)] bg-white">
                         <Banner key={key} message={message} dismissible={dismissible} position={position} />
-                        <div className="px-4.5 py-5 text-[0.85rem] text-(--text-subtle)">
+                        <div className="px-4.5 py-5 text-[0.85rem] text-[var(--text-subtle)]">
                             Page content below the banner sits here...
                         </div>
                     </div>

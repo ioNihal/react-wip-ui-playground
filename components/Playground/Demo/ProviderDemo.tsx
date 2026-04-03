@@ -7,6 +7,7 @@ import { ControlCheck, ControlLabel, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PillToggle from "../PillToggle";
 import PropTable from "../PropTable";
+import { codePanelClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function ProviderDemo() {
@@ -19,10 +20,10 @@ export default function ProviderDemo() {
                 <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-(--font-sans) text-[1rem]">WIPProvider + useWIP</h3>
+                            <h3 className="font-sans text-[1rem]">WIPProvider + useWIP</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
                             Global context to disable all WIP components at once.
                         </p>
                     </div>
@@ -44,16 +45,13 @@ export default function ProviderDemo() {
                     </ControlCheck>
                 </ControlsRow>
 
-                <div className="preview-area flex-col gap-3.5">
+                <div className={`${previewAreaClass} flex-col gap-3.5`}>
                     <WIPProvider theme={theme} globalDisabled={globalDisabled}>
                         <ProviderInner globalDisabled={globalDisabled} theme={theme} />
                     </WIPProvider>
                 </div>
 
-                <div
-                    className="mt-4 rounded-md border border-(--border-dark) px-4 py-3 text-[0.78rem] leading-[1.8] text-[#C8D9B4]"
-                    style={{ background: "var(--bg-dark)", fontFamily: "monospace" }}
-                >
+                <div className={`${codePanelClass} mt-4`}>
                     <span style={{ color: "#A8C890" }}>{"<WIPProvider"}</span>
                     {" "}
                     <span style={{ color: "#90C8A8" }}>theme</span>

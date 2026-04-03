@@ -1,5 +1,6 @@
 import MiniDemoCard from "./MiniDemoCard";
 
+
 const STEPS = [
     {
         code: "npm install react-wip-ui",
@@ -22,74 +23,29 @@ const STEPS = [
 
 export default function Preview() {
     return (
-        <section
-            style={{
-                padding: "clamp(40px, 6vw, 70px) clamp(20px, 6vw, 100px)",
-                background: "var(--bg-surface)",
-                borderTop: "1px solid var(--border)",
-                borderBottom: "1px solid var(--border)",
-            }}
-        >
-            <div
-                style={{
-                    maxWidth: 1000,
-                    margin: "0 auto",
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                    gap: 48,
-                    alignItems: "center",
-                }}
-            >
+        <section className="border-y border-(--border) bg-(--bg-surface) px-4 md:px-6 py-10">
+            <div className="mx-auto grid max-w-250 grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-center gap-12">
                 <div>
-                    <h2
-                        style={{
-                            fontFamily: "var(--font-serif)",
-                            fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-                            marginBottom: 14,
-                            lineHeight: 1.2,
-                        }}
-                    >
+                    <h2 className="mb-4 font-serif text-2xl lg:text-3xl xl:text-4xl">
                         Up in{" "}
-                        <span style={{ color: "var(--accent)" }}>30 seconds</span>
+                        <span className="text-(--accent)">30 seconds</span>
                     </h2>
-                    <p
-                        style={{
-                            color: "var(--text-muted)",
-                            lineHeight: 1.7,
-                            marginBottom: 28,
-                            fontSize: "0.95rem",
-                        }}
-                    >
+                    <p className="mb-6 text-(--text-muted)">
                         No theme setup, no providers required. Import one stylesheet and
                         start marking features.
                     </p>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    <div className="flex flex-col gap-4">
                         {STEPS.map((step, i) => (
-                            <div key={i} className="step-item">
-                                <div className="step-number">{i + 1}</div>
+                            <div key={i} className="flex items-start gap-2 lg:gap-4">
+                                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-(--accent) text-xs font-bold text-white">
+                                    {i + 1}
+                                </div>
                                 <div>
-                                    <div
-                                        style={{
-                                            fontSize: "0.8rem",
-                                            color: "var(--text-subtle)",
-                                            marginBottom: 4,
-                                        }}
-                                    >
+                                    <div className="mb-2 text-xs text-(--text-subtle)">
                                         {step.label}
                                     </div>
-                                    <code
-                                        style={{
-                                            background: "var(--bg-muted)",
-                                            padding: "4px 8px",
-                                            borderRadius: "var(--radius-xs)",
-                                            fontFamily: "monospace",
-                                            fontSize: "0.78rem",
-                                            color: "var(--accent-dark)",
-                                            border: "1px solid var(--border)",
-                                            display: "inline-block",
-                                            lineHeight: 1.5,
-                                        }}
-                                    >
+                                    <code className="inline-block rounded-xs border border-(--border) bg-(--bg-muted) px-2 py-1 
+                                        font-mono text-[12px] tracking-tighter text-(--accent-dark)">
                                         {step.code.split("\n")[0]}
                                     </code>
                                 </div>
@@ -97,7 +53,7 @@ export default function Preview() {
                         ))}
                     </div>
                 </div>
-                <div className="fade-up">
+                <div className="animate-fade-up [animation-delay:300ms]">
                     <MiniDemoCard />
                 </div>
             </div>

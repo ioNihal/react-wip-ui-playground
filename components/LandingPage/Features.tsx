@@ -25,36 +25,25 @@ const FEATURES = [
 
 export default function Features() {
     return (
-        <section style={{ padding: "clamp(40px, 6vw, 80px) clamp(20px, 6vw, 100px)" }}>
-            <div className="mx-auto max-w-[960px]">
-                <h2
-                    className="mb-10 text-center"
-                    style={{
-                        fontFamily: "var(--font-serif)",
-                        fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-                    }}
-                >
+        <section className="px-4 md:px-6 py-10">
+            <div className="mx-auto max-w-240">
+                <h2 className="mb-10 text-center font-serif text-3xl lg:text-4xl xl:text-5xl">
                     Everything you need,{" "}
-                    <em style={{ color: "var(--accent)", fontStyle: "italic" }}>nothing you don&apos;t</em>
+                    <em className="text-(--accent)">nothing you don&apos;t</em>
                 </h2>
-                <div className="feature-grid">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl overflow-clip
+                     border-2 border-(--border) bg-(--border)">
                     {FEATURES.map((feature, index) => (
-                        <div className={`feature-cell fade-up delay-${index + 1}`} key={feature.title}>
-                            <div className="feature-icon">
+                        <div
+                            className={`animate-fade-up [animation-delay:${index * 100}ms] bg-(--bg-card) px-6 py-7 transition-colors hover:bg-(--bg-surface)`}
+                            key={feature.title} >
+                            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-sm border border-(--accent-light) bg-(--accent-muted) text-(--accent-dark)">
                                 <feature.Icon />
                             </div>
-                            <h3
-                                className="mb-2"
-                                style={{
-                                    fontFamily: "var(--font-sans)",
-                                    fontWeight: 700,
-                                    fontSize: "0.95rem",
-                                    color: "var(--text-primary)",
-                                }}
-                            >
+                            <h3 className="mb-2 font-sans font-bold text-lg tracking-wider text-(--text-primary)">
                                 {feature.title}
                             </h3>
-                            <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", lineHeight: 1.65 }}>
+                            <p className="text-sm leading-tight text-(--text-muted)">
                                 {feature.desc}
                             </p>
                         </div>

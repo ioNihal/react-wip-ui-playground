@@ -6,6 +6,7 @@ import CodeChip from "../CodeChip";
 import { ControlInput, ControlLabel, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
+import { buttonBaseClass, buttonPrimaryClass, highlightClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function ModalDemo() {
@@ -19,10 +20,10 @@ export default function ModalDemo() {
                 <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-(--font-sans) text-[1rem]">Modal</h3>
+                            <h3 className="font-sans text-[1rem]">Modal</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
                             Accessible dialog with backdrop blur and slide-up animation.
                         </p>
                     </div>
@@ -42,8 +43,8 @@ export default function ModalDemo() {
                     </ControlsRow>
                 </div>
 
-                <div className="preview-area">
-                    <button className="btn btn-primary highlight" onClick={() => setIsOpen(true)}>
+                <div className={previewAreaClass}>
+                    <button className={`${buttonBaseClass} ${buttonPrimaryClass} ${highlightClass}`} onClick={() => setIsOpen(true)}>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <circle cx="12" cy="12" r="10" />
                             <line x1="12" y1="8" x2="12" y2="12" />

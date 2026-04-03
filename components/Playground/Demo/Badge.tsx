@@ -5,6 +5,7 @@ import CodeChip from "../CodeChip";
 import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import { useState } from "react";
+import { mockCardClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function BadgeDemo() {
@@ -17,10 +18,10 @@ export default function BadgeDemo() {
                 <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-(--font-sans) text-[1rem]">Badge</h3>
+                            <h3 className="font-sans text-[1rem]">Badge</h3>
                             <Tag type="server" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-(--text-muted)">
+                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
                             Inline label that attaches to any child element.
                         </p>
                     </div>
@@ -44,7 +45,7 @@ export default function BadgeDemo() {
                     </ControlCheck>
                 </ControlsRow>
 
-                <div className="preview-area flex-col items-start px-7 py-6">
+                <div className={`${previewAreaClass} flex-col items-start px-7 py-6`}>
                     <div className="flex flex-col gap-3.5">
                         <Badge text={text || "WIP"} disabled={disabled}>
                             <button style={{ padding: "8px 18px", borderRadius: "var(--radius-sm)", border: "1.5px solid var(--border)", background: "white", fontSize: "0.85rem", cursor: "pointer", color: "var(--text-primary)" }}>
@@ -57,7 +58,7 @@ export default function BadgeDemo() {
                             </span>
                         </Badge>
                         <Badge text={text || "WIP"} disabled={disabled}>
-                            <div style={{ display: "flex", alignItems: "center", gap: 7, padding: "6px 12px", background: "white", borderRadius: "var(--radius-sm)", border: "1px solid var(--border)", fontSize: "0.82rem", color: "var(--text-muted)" }}>
+                            <div className={`${mockCardClass} flex w-auto items-center gap-[7px] border px-3 py-1.5 text-[0.82rem] text-[var(--text-muted)] shadow-none`}>
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
                                 Side nav link
                             </div>

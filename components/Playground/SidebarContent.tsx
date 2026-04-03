@@ -73,7 +73,7 @@ export default function SidebarContent({
                         <div className="font-mono text-[0.65rem] text-(--text-subtle)">v1.0.0</div>
                     </div>
                 </Link>
-                <p className="m-0 text-[0.72rem] leading-normalltext-(--text-subtle)]">
+                <p className="m-0 text-[0.72rem] leading-normal text-(--text-subtle)">
                     Interactive playground
                 </p>
             </div>
@@ -91,7 +91,7 @@ export default function SidebarContent({
                                     key={item.id}
                                     className={`mb-1.5 flex w-full items-center gap-3 rounded-sm px-3.5 py-3 text-left text-[0.85rem] font-medium leading-[1.2] transition-colors last:mb-0 ${active === item.id
                                         ? "bg-(--accent-glow) text-(--accent-dark)"
-                                        : "text-(--text-muted)r:bg-[var(--bg-muted)] hover:text-(--text-primary)"
+                                        : "text-(--text-muted) hover:bg-(--bg-muted) hover:text-(--text-primary)"
                                         }`}
                                     onClick={() => onNav(item.id)}
                                 >
@@ -111,7 +111,7 @@ export default function SidebarContent({
 
             <div className="border-t border-(--border) px-6 py-4 text-[0.72rem]">
                 <a href="https://www.npmjs.com/package/react-wip-ui" target="_blank" rel="noopener noreferrer"
-                    className="mb-2 flex items-center gap-2 no-underline text-(--text-muted)">
+                    className="mb-2 flex items-center gap-2 text-(--text-muted) no-underline">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm4 4h16v16H4V4zm2 2v12h8v-2H8V6H6zm8 0v12h4V6h-4z" /></svg>
                     npm package
                 </a>
