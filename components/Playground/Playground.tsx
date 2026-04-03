@@ -54,7 +54,7 @@ export default function Playground() {
   }, []);
 
   return (
-    <div className="flex h-dvh bg-(--bg-base) ">
+    <div className="flex h-dvh bg-(--bg-base) overflow-x-hidden ">
 
       {/* SIDEBAR (desktop) */}
       <aside className="hidden xl:flex w-66 shrink-0 flex-col border-r border-(--border) bg-(--bg-surface)">
