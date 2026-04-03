@@ -6,7 +6,6 @@ import CodeChip from "../CodeChip";
 import { ControlInput, ControlLabel, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
-import { buttonBaseClass, buttonPrimaryClass, highlightClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function ModalDemo() {
@@ -17,13 +16,13 @@ export default function ModalDemo() {
     return (
         <DemoCard>
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-sans text-[1rem]">Modal</h3>
+                            <h3 className="font-sans text-lg tracking-wide">Modal</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
+                        <p className="text-sm text-(--text-muted)">
                             Accessible dialog with backdrop blur and slide-up animation.
                         </p>
                     </div>
@@ -43,8 +42,11 @@ export default function ModalDemo() {
                     </ControlsRow>
                 </div>
 
-                <div className={previewAreaClass}>
-                    <button className={`${buttonBaseClass} ${buttonPrimaryClass} ${highlightClass}`} onClick={() => setIsOpen(true)}>
+                <div className="flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
+                    bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
+                    <button className={`inline-flex items-center justify-center gap-2 rounded-sm border-2 px-4 py-2 text-sm font-semibold transition-all duration-200
+                         border-(--accent) bg-(--accent) text-white shadow-[0_2px_8px_rgba(110,139,82,0.30)] hover:-translate-y-px hover:border-(--accent-hover) hover:bg-(--accent-hover)
+                          hover:shadow-[0_4px_16px_rgba(110,139,82,0.35)] active:translate-y-0 animate-highlight-pulse`} onClick={() => setIsOpen(true)}>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <circle cx="12" cy="12" r="10" />
                             <line x1="12" y1="8" x2="12" y2="12" />

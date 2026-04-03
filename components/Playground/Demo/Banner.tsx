@@ -7,7 +7,6 @@ import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Contro
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PillToggle from "../PillToggle";
 import PropTable from "../PropTable";
-import { buttonBaseClass, buttonGhostClass, buttonSmClass, fadeUpClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function BannerDemo() {
@@ -17,15 +16,15 @@ export default function BannerDemo() {
     const [key, setKey] = useState(0);
 
     return (
-        <DemoCard className={fadeUpClass}>
+        <DemoCard className="animate-fade-up">
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                <div className="flex items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-sans text-[1rem]">Banner</h3>
+                            <h3 className="font-sans text-lg tracking-wide">Banner</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
+                        <p className="text-sm text-(--text-muted)">
                             Announcement bar with sticky or relative positioning.
                         </p>
                     </div>
@@ -34,7 +33,7 @@ export default function BannerDemo() {
             </DemoCardHeader>
 
             <DemoCardBody>
-                <div className="mb-5 flex flex-col gap-3 max-[640px]:mb-4 max-[640px]:gap-2.5">
+                <div className="mb-5 flex flex-col gap-3">
                     <ControlsRow>
                         <ControlLabel>Position</ControlLabel>
                         <PillToggle
@@ -56,23 +55,26 @@ export default function BannerDemo() {
                             />
                             Dismissible
                         </ControlCheck>
-                        <button className={`${buttonBaseClass} ${buttonGhostClass} ${buttonSmClass}`} onClick={() => setKey((current) => current + 1)}>
+                        <button className="inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition-all duration-200
+                            bg-transparent text-(--text-muted) hover:bg-(--bg-muted) hover:text-(--text-primary)"
+                            onClick={() => setKey((current) => current + 1)}>
                             Reset
                         </button>
                     </ControlsRow>
                     <ControlsRow>
                         <ControlLabel>Message</ControlLabel>
                         <ControlInput
-                            className="min-w-0 flex-1"
+                            className="flex-1"
                             value={message}
                             onChange={(event) => setMessage(event.target.value)}
                         />
                     </ControlsRow>
                 </div>
-                <div className={`${previewAreaClass} flex-col p-0`}>
-                    <div className="w-full overflow-hidden rounded-md border border-[var(--border)] bg-white">
+                <div className="relative flex-flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border) 
+                    bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
+                    <div className="w-full overflow-hidden rounded-md border border-(--border) bg-white">
                         <Banner key={key} message={message} dismissible={dismissible} position={position} />
-                        <div className="px-4.5 py-5 text-[0.85rem] text-[var(--text-subtle)]">
+                        <div className="px-4.5 py-5 text-[0.85rem] text-(--text-subtle)">
                             Page content below the banner sits here...
                         </div>
                     </div>

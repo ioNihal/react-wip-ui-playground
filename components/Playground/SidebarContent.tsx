@@ -56,10 +56,10 @@ export default function SidebarContent({
 }) {
     return (
         <>
-            <div className="border-b border-(--border) px-6 pt-6 pb-5">
+            <div className="border-b border-(--border) px-4 py-3">
                 <Link
                     href="/"
-                    className="mb-2.5 flex items-center gap-3 no-underline"
+                    className="flex items-center gap-3 no-underline"
                 >
                     <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-(--accent)">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
@@ -67,21 +67,18 @@ export default function SidebarContent({
                         </svg>
                     </div>
                     <div>
-                        <div className="text-sm font-bold tracking-[-0.01em] text-(--text-primary)">
-                            react-wip-ui
+                        <div className="text-sm font-bold text-(--text-primary)">
+                            React-WIP-UI
                         </div>
-                        <div className="font-mono text-[0.65rem] text-(--text-subtle)">v1.0.0</div>
+                        <div className="font-mono text-[10px] text-(--text-subtle)">v1.0.0</div>
                     </div>
                 </Link>
-                <p className="m-0 text-[0.72rem] leading-normal text-(--text-subtle)">
-                    Interactive playground
-                </p>
             </div>
 
             <nav className="flex-1 overflow-y-auto px-4 py-5">
                 {playgroundNav.map((group) => (
                     <div key={group.group} className="mb-7 last:mb-0">
-                        <div className="mb-2.5 px-2.5 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-(--text-subtle)">
+                        <div className="mb-2.5 px-2.5 text-[10px] font-bold uppercase text-(--text-subtle)">
                             {group.group}
                         </div>
                         {group.items.map((item) => {
@@ -89,19 +86,14 @@ export default function SidebarContent({
                             return (
                                 <button
                                     key={item.id}
-                                    className={`mb-1.5 flex w-full items-center gap-3 rounded-sm px-3.5 py-3 text-left text-[0.85rem] font-medium leading-[1.2] transition-colors last:mb-0 ${active === item.id
-                                        ? "bg-(--accent-glow) text-(--accent-dark)"
-                                        : "text-(--text-muted) hover:bg-(--bg-muted) hover:text-(--text-primary)"
+                                    className={`mb-1.5 flex w-full items-center gap-3 rounded-sm px-3 py-2 text-left text-sm font-medium transition-colors last:mb-0
+                                         ${active === item.id
+                                            ? "bg-(--accent-glow) text-(--accent-dark)"
+                                            : "text-(--text-muted) hover:bg-(--bg-muted) hover:text-(--text-primary)"
                                         }`}
-                                    onClick={() => onNav(item.id)}
-                                >
+                                    onClick={() => onNav(item.id)} >
                                     <span className="shrink-0 opacity-65"><Icon /></span>
                                     <span className="flex-1">{item.label}</span>
-                                    {item.type === "server" && (
-                                        <span className="inline-flex items-center gap-1.25 rounded-full border-[1.5px] border-[#BCDAB4] bg-[#EBF4E8] px-1.5 py-px text-[0.58rem] font-bold uppercase tracking-[0.08em] text-[#3A7035]">
-                                            SSR
-                                        </span>
-                                    )}
                                 </button>
                             )
                         })}
@@ -109,9 +101,9 @@ export default function SidebarContent({
                 ))}
             </nav>
 
-            <div className="border-t border-(--border) px-6 py-4 text-[0.72rem]">
+            <div className="border-t border-(--border) px-4 py-3 text-xs flex items-center justify-between text-(--text-muted)">
                 <a href="https://www.npmjs.com/package/react-wip-ui" target="_blank" rel="noopener noreferrer"
-                    className="mb-2 flex items-center gap-2 text-(--text-muted) no-underline">
+                    className="flex items-center gap-2 text-(--text-muted) no-underline">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm4 4h16v16H4V4zm2 2v12h8v-2H8V6H6zm8 0v12h4V6h-4z" /></svg>
                     npm package
                 </a>

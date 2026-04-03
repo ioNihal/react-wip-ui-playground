@@ -6,7 +6,6 @@ import CodeChip from "../CodeChip";
 import { ControlCheck, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
-import { mockCardClass, mockInputClass, mockLabelClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function BlockDemo() {
@@ -15,13 +14,13 @@ export default function BlockDemo() {
     return (
         <DemoCard >
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                <div className="flex items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-sans text-[1rem]">Block</h3>
+                            <h3 className="font-sans text-lg tracking-wide">Block</h3>
                             <Tag type="server" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
+                        <p className="text-sm text-(--text-muted)">
                             Disables pointer events and text selection on children.
                         </p>
                     </div>
@@ -31,46 +30,29 @@ export default function BlockDemo() {
 
             <DemoCardBody>
                 <ControlsRow className="mb-5">
-                    <ControlCheck className="text-[0.85rem] text-[var(--text-primary)]">
+                    <ControlCheck className="text-sm text-(--text-primary)">
                         <input type="checkbox" checked={disabled} onChange={(event) => setDisabled(event.target.checked)} />
                         Allow interaction (disabled=true)
                     </ControlCheck>
                 </ControlsRow>
 
-                <div className={`${previewAreaClass} gap-6`}>
+                <div className="flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
+                    bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
                     <Block disabled={disabled}>
-                        <div className={mockCardClass} style={{ opacity: disabled ? 1 : 0.65 }}>
-                            <label className={mockLabelClass}>Subscription</label>
-                            <input className={mockInputClass} placeholder="your@email.com" />
-                            <div style={{ display: "flex", gap: 6, marginTop: 4 }}>
-                                <div
-                                    style={{
-                                        flex: 1,
-                                        padding: "8px",
-                                        background: "var(--accent)",
-                                        color: "white",
-                                        borderRadius: "var(--radius-sm)",
-                                        fontSize: "0.8rem",
-                                        textAlign: "center",
-                                    }}
-                                >
+                        <div className="rounded-md border border-(--border) bg-white p-4 shadow-(--shadow-xs)" style={{ opacity: disabled ? 1 : 0.65 }}>
+                            <label className="mb-2 block text-xs font-semibold uppercase text-(--text-subtle)">Subscription</label>
+                            <input className="mb-2 w-full rounded-xs border border-(--border) bg-(--bg-surface) px-4 py-2 font-sans text-sm outline-none" placeholder="your@email.com" />
+                            <div className="flex gap-1.5 mt-1">
+                                <div className="flex-1 px-2 py-1.5 bg-(--accent) text-white rounded-sm text-sm text-center">
                                     Subscribe
                                 </div>
-                                <div
-                                    style={{
-                                        padding: "8px 12px",
-                                        border: "1px solid var(--border)",
-                                        background: "white",
-                                        borderRadius: "var(--radius-sm)",
-                                        fontSize: "0.8rem",
-                                    }}
-                                >
+                                <div className="flex-1 px-2 py-1.5 border border-(--border) rounded-sm text-sm text-center">
                                     Skip
                                 </div>
                             </div>
                         </div>
                     </Block>
-                    <div className="max-w-45 text-[0.78rem] leading-[1.65] text-[var(--text-muted)]">
+                    <div className="text-sm text-(--text-muted)">
                         {disabled ? "Interaction re-enabled." : "Pointer events are blocked. Try clicking the form."}
                     </div>
                 </div>

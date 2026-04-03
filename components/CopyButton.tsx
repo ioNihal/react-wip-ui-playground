@@ -12,9 +12,10 @@ export default function CopyButton({ text }: { text: string }) {
     };
     return (
         <button
-            className="flex items-center justify-center gap-1.5 border-l border-[var(--border-dark)] bg-[rgba(110,139,82,0.2)] px-4.5 py-3.5 text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--accent-light)] transition-colors hover:bg-[rgba(110,139,82,0.35)] max-[640px]:justify-center max-[640px]:border-t max-[640px]:border-l-0"
+            className="flex items-center justify-center gap-1.5 border-l border-(--border-dark) bg-(--accent)/30 px-4.5 py-3.5 
+            text-sm font-semibold text-(--accent-light) transition-all hover:bg-(--accent)/50"
             onClick={copy}
-            aria-label="Copy install command"
+            aria-label={`Copy "${text}" to clipboard`}
         >
             {copied ? <Check /> : <CopyIcon />}
             {copied ? "Copied!" : "Copy"}

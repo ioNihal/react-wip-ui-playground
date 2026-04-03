@@ -6,7 +6,6 @@ import CodeChip from "../CodeChip";
 import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import { useState } from "react";
-import { fadeUpClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 import { Ribbon } from "react-wip-ui";
 
@@ -17,15 +16,15 @@ export default function RibbonDemo() {
     const [disabled, setDisabled] = useState(false);
 
     return (
-        <DemoCard className={fadeUpClass}>
+        <DemoCard className="animate-fade-up">
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-sans text-[1rem]">Ribbon</h3>
+                            <h3 className="font-sans text-lg tracking-wide">Ribbon</h3>
                             <Tag type="server" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
+                        <p className="text-sm text-(--text-muted)">
                             A diagonal corner ribbon for any positioned container.
                         </p>
                     </div>
@@ -34,7 +33,7 @@ export default function RibbonDemo() {
             </DemoCardHeader>
 
             <DemoCardBody>
-                <div className="mb-5 flex flex-col gap-3 max-[640px]:mb-4 max-[640px]:gap-2.5">
+                <div className="mb-5 flex flex-col gap-3">
                     <ControlsRow>
                         <ControlLabel>Position</ControlLabel>
                         <PillToggle
@@ -68,23 +67,10 @@ export default function RibbonDemo() {
                     </ControlsRow>
                 </div>
 
-                <div className={previewAreaClass}>
-                    <div
-                        style={{
-                            position: "relative",
-                            width: 190,
-                            height: 130,
-                            background: "white",
-                            borderRadius: "var(--radius-md)",
-                            border: "1px solid var(--border)",
-                            overflow: "hidden",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            boxShadow: "var(--shadow-sm)",
-                        }}
-                    >
-                        <span className="text-[0.8rem] text-[var(--text-subtle)]">Card content</span>
+                <div className="flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
+                    bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
+                    <div className="relative w-48 h-32 bg-white rounded-md border border-(--border) overflow-hidden flex items-center justify-center shadow-sm">
+                        <span className="text-[0.8rem] text-(--text-subtle)">Card content</span>
                         <Ribbon position={position} text={text || "WIP"} variant={variant} disabled={disabled} />
                     </div>
                 </div>

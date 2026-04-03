@@ -13,16 +13,14 @@ import RibbonDemo from "@/components/Playground/Demo/Ribbon";
 import WIPDemo from "@/components/Playground/Demo/WIPDemo";
 import InstallBar from "@/components/InstallBar";
 import SectionLabel from "@/components/Playground/SectionLabel";
-import {
-  buttonBaseClass,
-  buttonGhostClass,
-  buttonSmClass,
-} from "@/components/Playground/styles";
-import { MenuIcon } from "lucide-react";
+import { ChevronLeft, MenuIcon } from "lucide-react";
+import CopyButton from "../CopyButton";
 
 const sectionIds = playgroundNav.flatMap((group) =>
   group.items.map((item) => item.id)
 );
+
+const currentYear = new Date().getFullYear();
 
 export default function Playground() {
   const [active, setActive] = useState("ribbon");
@@ -59,24 +57,21 @@ export default function Playground() {
     <div className="flex h-dvh bg-(--bg-base) ">
 
       {/* SIDEBAR (desktop) */}
-      <aside className="hidden xl:flex w-66 shrink-0 flex-col border-r border-(--border)var(--bg-surface)]">
+      <aside className="hidden xl:flex w-66 shrink-0 flex-col border-r border-(--border) bg-(--bg-surface)">
         <SidebarContent active={active} onNav={scrollTo} />
       </aside>
 
       {/* MOBILE OVERLAY */}
       <div
-        className={`fixed inset-0 z-40 bg-black/40 transition-opacity ${
-          drawerOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-40 bg-black/40 transition-opacity
+           ${drawerOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={() => setDrawerOpen(false)}
       />
 
       {/* MOBILE DRAWER */}
       <div
-        className={`fixed top-0 left-0 z-50 h-dvh w-72 flex-col bg-(--bg-surface) border-r border-(--border) transition-transform ${
-          drawerOpen ? "translate-x-0" : "-translate-x-full"
-        } xl:hidden`}
-      >
+        className={`fixed top-0 left-0 z-50 h-dvh w-72 flex-col bg-(--bg-surface) border-r border-(--border) transition-transform 
+          ${drawerOpen ? "translate-x-0" : "-translate-x-full"} xl:hidden`} >
         <SidebarContent active={active} onNav={scrollTo} />
       </div>
 
@@ -104,26 +99,28 @@ export default function Playground() {
 
             {/* HEADER */}
             <div className="mb-8 border-b border-(--border) pb-6">
-              <div className="mb-3 flex items-center gap-3">
-                <div className="rounded-full border px-3 py-1 text-xs font-semibold">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <div className="rounded-full border border-(--border) text-(--text-muted) bg-(--bg-surface) px-3 py-1 text-xs font-semibold">
                   Interactive Playground
                 </div>
 
-                <Link href="/" className="text-xs text-(--text-muted)">
-                  Back to docs
+                <Link href="/" className="inline-flex items-center gap-2 hover:gap-3 transition-all text-xs text-(--text-accent) hover:text-(--text-muted)">
+                  <ChevronLeft size={18} /> Back to Home
                 </Link>
               </div>
 
               <h1 className="mb-2 text-3xl font-semibold">
-                react-wip-ui
+                React-WIP-UI
               </h1>
 
               <p className="mb-4 max-w-xl text-sm text-(--text-muted)">
                 Production-ready components for marking features as work in progress.
               </p>
 
-              <InstallBar>
-                npm install react-wip-ui
+              <InstallBar action={<CopyButton text="npm install react-wip-ui" />}>
+                <span className="text-[#668855]">$</span>{" "}
+                <span className="text-[#C8D9B4]">npm install</span>{" "}
+                <span className="text-[#B4CCA0]">react-wip-ui</span>
               </InstallBar>
             </div>
 
@@ -147,9 +144,9 @@ export default function Playground() {
 
             {/* FOOTER */}
             <div className="mt-12 flex items-center justify-between border-t border-(--border) pt-6 text-xs text-(--text-muted)">
-              <span>react-wip-ui v1.0.0</span>
+              <span>&copy; {currentYear} React-WIP-UI v1.0.0</span>
               <Link href="/" className="text-(--accent)">
-                Back to landing
+                Back to Home
               </Link>
             </div>
 

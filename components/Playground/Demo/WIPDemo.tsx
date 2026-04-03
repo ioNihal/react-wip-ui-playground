@@ -6,22 +6,21 @@ import CodeChip from "../CodeChip";
 import { ControlCheck, ControlsRow } from "../Controls";
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
-import { delayClass, fadeUpClass, mockCardClass, previewAreaClass } from "../styles";
 import Tag from "../Tag";
 
 export default function WIPDemo() {
     const [when, setWhen] = useState(true);
 
     return (
-        <DemoCard className={`${fadeUpClass} ${delayClass(2)}`}>
+        <DemoCard className="animate-fade-up">
             <DemoCardHeader>
-                <div className="flex flex-wrap items-start justify-between gap-3 max-[640px]:gap-2.5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="grid gap-1.5">
                         <div className="flex items-center gap-2.5">
-                            <h3 className="font-sans text-[1rem]">WIP Wrapper</h3>
+                            <h3 className="font-sans text-lg tracking-wide">WIP Wrapper</h3>
                             <Tag type="client" />
                         </div>
-                        <p className="m-0 text-[0.82rem] leading-[1.6] text-[var(--text-muted)]">
+                        <p className="text-sm text-(--text-muted)">
                             Composable wrapper with conditional WIP treatment.
                         </p>
                     </div>
@@ -31,19 +30,12 @@ export default function WIPDemo() {
 
             <DemoCardBody>
                 <ControlsRow className="mb-5">
-                    <ControlCheck className="text-[0.88rem] font-medium text-[var(--text-primary)]">
+                    <ControlCheck className="text-sm font-medium text-(--text-primary)">
                         <input type="checkbox" checked={when} onChange={(event) => setWhen(event.target.checked)} />
                         WIP active
                     </ControlCheck>
-                    <span
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold"
                         style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 6,
-                            padding: "4px 12px",
-                            borderRadius: "var(--radius-full)",
-                            fontSize: "0.72rem",
-                            fontWeight: 700,
                             background: when ? "#FFF4E8" : "#EBF4E8",
                             color: when ? "#A87040" : "#367A35",
                             border: `1.5px solid ${when ? "#E8C8A0" : "#BCDAB4"}`,
@@ -53,22 +45,23 @@ export default function WIPDemo() {
                     </span>
                 </ControlsRow>
 
-                <div className={previewAreaClass}>
+                <div className="flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
+                    bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
                     <WIP when={when}>
-                        <div className={`${mockCardClass} w-[210px]`}>
-                            <div className="mb-2.5 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-[var(--text-subtle)]">
+                        <div className="w-50 rounded-md border border-(--border) bg-white p-4 shadow-xs">
+                            <div className="mb-2.5 text-xs font-bold uppercase tracking-wider text-(--text-subtle)">
                                 New Dashboard
                             </div>
-                            <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                            <div className="flex flex-col gap-1.5">
                                 {[70, 45, 85].map((w, i) => (
-                                    <div key={i} style={{ height: 7, background: "var(--bg-muted)", borderRadius: 99, overflow: "hidden" }}>
-                                        <div style={{ width: `${w}%`, height: "100%", background: "var(--accent)", borderRadius: 99, opacity: 0.7 }} />
+                                    <div key={i} className="h-1.5 bg-(--bg-muted) rounded-xl overflow-hidden">
+                                        <div style={{ width: `${w}%`, height: "100%" }} className="bg-(--accent) rounded-xl opacity-70" />
                                     </div>
                                 ))}
                             </div>
-                            <div style={{ marginTop: 12, display: "flex", gap: 6 }}>
-                                <div style={{ flex: 1, height: 28, background: "var(--bg-muted)", borderRadius: "var(--radius-sm)" }} />
-                                <div style={{ width: 28, height: 28, background: "var(--bg-muted)", borderRadius: "var(--radius-sm)" }} />
+                            <div className="mt-3 flex gap-1.5">
+                                <div className="flex-1 h-7 bg-(--bg-muted) rounded-md" />
+                                <div className="h-7 w-7 bg-(--bg-muted) rounded-md" />
                             </div>
                         </div>
                     </WIP>
