@@ -1,3 +1,4 @@
+import Reveal from "../Reveal";
 import MiniDemoCard from "./MiniDemoCard";
 
 
@@ -36,26 +37,28 @@ export default function Preview() {
                     </p>
                     <div className="flex flex-col gap-4">
                         {STEPS.map((step, i) => (
-                            <div key={i} className="flex items-start gap-2 lg:gap-4">
-                                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-(--accent) text-xs font-bold text-white">
-                                    {i + 1}
-                                </div>
-                                <div>
-                                    <div className="mb-2 text-xs text-(--text-subtle)">
-                                        {step.label}
+                            <Reveal key={i}>
+                                <div className="flex items-start gap-2 lg:gap-4">
+                                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-(--accent) text-xs font-bold text-white">
+                                        {i + 1}
                                     </div>
-                                    <code className="inline-block rounded-xs border border-(--border) bg-(--bg-muted) px-2 py-1 
+                                    <div>
+                                        <div className="mb-2 text-xs text-(--text-subtle)">
+                                            {step.label}
+                                        </div>
+                                        <code className="inline-block rounded-xs border border-(--border) bg-(--bg-muted) px-2 py-1 
                                         font-mono text-[12px] tracking-tighter text-(--accent-dark)">
-                                        {step.code.split("\n")[0]}
-                                    </code>
+                                            {step.code.split("\n")[0]}
+                                        </code>
+                                    </div>
                                 </div>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
-                <div className="animate-fade-up [animation-delay:300ms]">
+                <Reveal>
                     <MiniDemoCard />
-                </div>
+                </Reveal>
             </div>
         </section>
     )
