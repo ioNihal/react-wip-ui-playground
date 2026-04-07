@@ -101,7 +101,21 @@ export default function SidebarContent({
                 ))}
             </nav>
 
-            <div className="border-t border-(--border) px-4 py-3 text-xs flex items-center justify-between text-(--text-muted)">
+            <div className="px-4 py-4">
+                <Link
+                    href="/support"
+                    className="flex items-center gap-3 rounded-sm border border-(--border) bg-(--bg-surface) px-3 py-2 text-sm font-medium text-(--text-primary) transition-all hover:bg-(--bg-muted) hover:border-(--accent) hover:text-(--accent-dark)"
+                >
+                    <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-(--accent-glow) text-(--accent-dark)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                        </svg>
+                    </span>
+                    <span>Contact Support</span>
+                </Link>
+            </div>
+
+            <div className="border-t border-(--border) px-4 py-6 lg:py-3 text-xs flex items-center justify-between text-(--text-muted)">
                 <a href="https://www.npmjs.com/package/react-wip-ui" target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-2 text-(--text-muted) no-underline">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm4 4h16v16H4V4zm2 2v12h8v-2H8V6H6zm8 0v12h4V6h-4z" /></svg>
