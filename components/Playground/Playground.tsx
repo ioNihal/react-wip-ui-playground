@@ -4,13 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import SidebarContent, { playgroundNav } from "@/components/Playground/SidebarContent";
 import BadgeDemo from "@/components/Playground/Demo/Badge";
-import BannerDemo from "@/components/Playground/Demo/Banner";
 import BlockDemo from "@/components/Playground/Demo/Block";
-import ModalDemo from "@/components/Playground/Demo/Modal";
 import OverlayDemo from "@/components/Playground/Demo/Overlay";
-import ProviderDemo from "@/components/Playground/Demo/ProviderDemo";
 import RibbonDemo from "@/components/Playground/Demo/Ribbon";
-import WIPDemo from "@/components/Playground/Demo/WIPDemo";
 import InstallBar from "@/components/InstallBar";
 import SectionLabel from "@/components/Playground/SectionLabel";
 import { ChevronLeft, MenuIcon } from "lucide-react";
@@ -133,18 +129,11 @@ export default function Playground() {
               <div id="section-block"><BlockDemo /></div>
             </div>
 
-            {/* CLIENT */}
-            <SectionLabel>Client Components</SectionLabel>
-            <div className="mt-6 flex flex-col gap-10">
-              <div id="section-banner"><BannerDemo /></div>
-              <div id="section-modal"><ModalDemo /></div>
-              <div id="section-wip"><WIPDemo /></div>
-              <div id="section-provider"><ProviderDemo /></div>
-            </div>
+
 
             {/* FOOTER */}
             <div className="mt-12 flex items-center justify-between border-t border-(--border) pt-6 text-xs text-(--text-muted)">
-              <span>&copy; {currentYear} React-WIP-UI v1.0.0</span>
+              <span>&copy; {currentYear} React-WIP-UI v3.0.0</span>
               <Link href="/" className="text-(--accent)">
                 Back to Home
               </Link>

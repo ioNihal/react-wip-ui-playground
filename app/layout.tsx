@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Inter } from "next/font/google";
+import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
-  weight: ["400"],
-  style: ["normal", "italic"],
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-dm-serif",
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -24,8 +22,8 @@ const HOST_URL =
 const ogGeneratorParams = new URLSearchParams({
   title: "React-WIP-UI",
   description: "Work In Progress UI Components",
-  theme: "dark",
-  site: "https://react-wip-ui.vercel.app"
+  theme: "memphis",
+  site: "React-WIP-UI"
 });
 
 export const metadata: Metadata = {
@@ -113,7 +111,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${playfair.variable}`}>
       <body>
         {children}
         <script

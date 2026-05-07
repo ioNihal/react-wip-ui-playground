@@ -16,21 +16,12 @@ type NavItem = {
 
 export const playgroundNav: NavItem[] = [
     {
-        group: "Server Components",
+        group: "Components",
         items: [
             { id: "ribbon", label: "Ribbon", type: "server" },
             { id: "badge", label: "Badge", type: "server" },
             { id: "overlay", label: "Overlay", type: "server" },
             { id: "block", label: "Block", type: "server" },
-        ],
-    },
-    {
-        group: "Client Components",
-        items: [
-            { id: "banner", label: "Banner", type: "client" },
-            { id: "modal", label: "Modal", type: "client" },
-            { id: "wip", label: "WIP Wrapper", type: "client" },
-            { id: "provider", label: "Provider + useWIP", type: "client" },
         ],
     },
 ];
@@ -70,7 +61,7 @@ export default function SidebarContent({
                         <div className="text-sm font-bold text-(--text-primary)">
                             React-WIP-UI
                         </div>
-                        <div className="font-mono text-[10px] text-(--text-subtle)">v1.0.0</div>
+                        <div className="font-mono text-[10px] text-(--text-subtle)">v3.0.0</div>
                     </div>
                 </Link>
             </div>
@@ -117,10 +108,13 @@ export default function SidebarContent({
 
             <div className="border-t border-(--border) px-4 py-6 lg:py-3 text-xs flex items-center justify-between text-(--text-muted)">
                 <a href="https://www.npmjs.com/package/react-wip-ui" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-(--text-muted) no-underline">
+                    className="flex items-center gap-2 text-(--text-muted) no-underline hover:text-(--text-primary) transition-colors">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm4 4h16v16H4V4zm2 2v12h8v-2H8V6H6zm8 0v12h4V6h-4z" /></svg>
                     npm package
                 </a>
+                <Link href="/changelog" className="text-(--text-muted) hover:text-(--text-primary) transition-colors no-underline">
+                    Changelog
+                </Link>
                 <span className="text-(--text-subtle)">MIT License</span>
             </div>
         </>

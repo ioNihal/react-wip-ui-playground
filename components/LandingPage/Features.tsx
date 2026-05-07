@@ -14,13 +14,13 @@ const FEATURES = [
     },
     {
         Icon: FileStackIcon,
-        title: "Composable",
-        desc: "Use individual components or wrap a feature with <WIP when={flag}>.",
+        title: "Zero Deps",
+        desc: "No external runtime dependencies. Inline SVG icons, inline styles, nothing to install.",
     },
     {
         Icon: Zap,
         title: "Zero Config",
-        desc: "Import one stylesheet and wrap your component. No provider is required to start.",
+        desc: "No stylesheet, no provider, no CSS import. Just import and use.",
     },
 ];
 

@@ -6,17 +6,13 @@ const COMPONENTS = [
     { name: "Badge", type: "server", desc: "Inline WIP label" },
     { name: "Overlay", type: "server", desc: "Frosted glass blur" },
     { name: "Block", type: "server", desc: "Disable interaction" },
-    { name: "Banner", type: "client", desc: "Dismissible top bar" },
-    { name: "Modal", type: "client", desc: "Accessible dialog" },
-    { name: "WIP", type: "client", desc: "Smart wrapper" },
-    { name: "Provider", type: "client", desc: "Global config context" },
 ];
 
 export default function ComponentsPills() {
     return (
         <section className="px-4 md:px-6 py-10 text-center">
             <p className="mb-6 text-sm lg:text-base font-bold uppercase text-(--text-subtle)">
-                8 components, server and client
+                4 server-safe components, zero deps
             </p>
             <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
                 {COMPONENTS.map((component, i) => (

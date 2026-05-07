@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "react-wip-ui/styles.css";
+
 
 /* Theme tokens */
 @theme {
@@ -25,8 +25,8 @@
   --success: #5A8A50;
   --warning: #A8843C;
   --info: #4A7A8A;
-  --font-sans: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-serif: var(--font-dm-serif, 'Georgia', serif);
+  --font-sans: var(--font-sans, 'Outfit', system-ui, sans-serif);
+  --font-serif: var(--font-serif, 'Playfair Display', serif);
   --font-mono: 'Fira Code', 'Geist Mono', 'Courier New', monospace;
 
 

@@ -7,10 +7,12 @@ import { ControlCheck, ControlInput, ControlLabel, ControlsRow } from "../Contro
 import { DemoCard, DemoCardBody, DemoCardFooter, DemoCardHeader } from "../DemoCard";
 import PropTable from "../PropTable";
 import Tag from "../Tag";
+import PillToggle from "../PillToggle";
 
 export default function OverlayDemo() {
     const [message, setMessage] = useState("Coming Soon");
     const [disabled, setDisabled] = useState(false);
+    const [theme, setTheme] = useState<"light" | "dark">("light");
 
     return (
         <DemoCard className="animate-fade-up">
@@ -38,6 +40,12 @@ export default function OverlayDemo() {
                         onChange={(event) => setMessage(event.target.value)}
                         placeholder="Overlay message"
                     />
+                    <ControlLabel>Theme</ControlLabel>
+                    <PillToggle
+                        options={[{ label: "Light", value: "light" }, { label: "Dark", value: "dark" }]}
+                        value={theme}
+                        onChange={setTheme}
+                    />
                     <ControlCheck>
                         <input
                             type="checkbox"
@@ -50,7 +58,7 @@ export default function OverlayDemo() {
 
                 <div className="flex items-center justify-center gap-4 overflow-hidden rounded-md border border-(--border)
                     bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
-                    <Overlay message={message || "Coming Soon"} disabled={disabled}>
+                    <Overlay message={message || "Coming Soon"} disabled={disabled} theme={theme}>
                         <div className="w-50 max-w-full rounded-md border border-(--border) bg-white p-4 shadow-(--shadow-xs)">
                             <label className="mb-2 block text-xsfont-semibold uppercase text-(--text-subtle)">Email</label>
                             <input className="mb-2 w-full rounded-xs border border-(--border) bg-(--bg-surface) px-3 py-2 font-sans text-sm outline-none" defaultValue="user@example.com" readOnly />
@@ -68,6 +76,8 @@ export default function OverlayDemo() {
                 <PropTable
                     rows={[
                         { prop: "message", type: "string", default: '"Coming Soon"', description: "Text in the overlay pill" },
+                        { prop: "theme", type: "'light' | 'dark'", default: '"light"', description: "Color theme for the overlay" },
+                        { prop: "colors", type: "{ bg?: string, text?: string }", description: "Custom background and text colors" },
                         { prop: "disabled", type: "boolean", default: "false", description: "When true, removes the overlay" },
                         { prop: "children", type: "ReactNode", description: "Content underneath the overlay" },
                     ]}

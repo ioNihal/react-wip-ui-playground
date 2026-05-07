@@ -14,6 +14,7 @@ export default function RibbonDemo() {
     const [variant, setVariant] = useState<"solid" | "outline">("solid");
     const [text, setText] = useState("WIP");
     const [disabled, setDisabled] = useState(false);
+    const [theme, setTheme] = useState<"light" | "dark">("light");
 
     return (
         <DemoCard className="animate-fade-up">
@@ -47,6 +48,12 @@ export default function RibbonDemo() {
                             value={variant}
                             onChange={setVariant}
                         />
+                        <ControlLabel>Theme</ControlLabel>
+                        <PillToggle
+                            options={[{ label: "Light", value: "light" }, { label: "Dark", value: "dark" }]}
+                            value={theme}
+                            onChange={setTheme}
+                        />
                     </ControlsRow>
                     <ControlsRow>
                         <ControlInput
@@ -71,7 +78,7 @@ export default function RibbonDemo() {
                     bg-[radial-gradient(circle_at_1px_1px,var(--border)_1px,transparent_0)] bg-size-[24px_24px] px-4 md:px-6 py-6">
                     <div className="relative w-48 h-32 bg-white rounded-md border border-(--border) overflow-hidden flex items-center justify-center shadow-sm">
                         <span className="text-[0.8rem] text-(--text-subtle)">Card content</span>
-                        <Ribbon position={position} text={text || "WIP"} variant={variant} disabled={disabled} />
+                        <Ribbon position={position} text={text || "WIP"} variant={variant} disabled={disabled} theme={theme} />
                     </div>
                 </div>
             </DemoCardBody>
@@ -82,6 +89,8 @@ export default function RibbonDemo() {
                         { prop: "position", type: '"top-left" | "top-right"', default: '"top-right"', description: "Which corner the ribbon appears in" },
                         { prop: "text", type: "string", default: '"WIP"', description: "Label text on the ribbon" },
                         { prop: "variant", type: '"solid" | "outline"', default: '"solid"', description: "Filled or outlined ribbon style" },
+                        { prop: "theme", type: "'light' | 'dark'", default: '"light"', description: "Color theme for the ribbon" },
+                        { prop: "colors", type: "{ bg?: string, text?: string }", description: "Custom background and text colors" },
                         { prop: "disabled", type: "boolean", default: "false", description: "When true, renders nothing" },
                     ]}
                 />

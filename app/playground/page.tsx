@@ -12,7 +12,8 @@ const description =
 const ogGeneratorParams = new URLSearchParams({
   title: "React-WIP-UI Playground",
   description: "Interactive component live testing environment",
-  theme: "glass",
+  theme: "memphis",
+  site: "React-WIP-UI"
 });
 
 export const metadata: Metadata = {

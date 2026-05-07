@@ -16,10 +16,17 @@ export default function Header() {
                 </span>
                 <span className="rounded-full border border-(--border) bg-(--bg-muted) px-2 py-1 
                 font-mono text-[10px] text-(--text-subtle)">
-                    v1.0.0
+                    v3.0.0
                 </span>
             </div>
             <div className="flex items-center gap-2.5">
+                <Link
+                    href="/changelog"
+                    className="hidden md:inline-flex items-center justify-center rounded-sm px-3 py-1.5 text-sm font-semibold transition-all duration-200
+                    bg-transparent text-(--text-muted) hover:bg-(--bg-muted) hover:text-(--text-primary)"
+                >
+                    Changelog
+                </Link>
                 <a
                     href="https://www.npmjs.com/package/react-wip-ui"
                     target="_blank"

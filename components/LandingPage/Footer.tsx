@@ -18,6 +18,9 @@ export default function Footer() {
                     <Link href="/playground" className="text-(--text-dim) transition-colors hover:text-(--text-on-dark)">
                         Playground
                     </Link>
+                    <Link href="/changelog" className="text-(--text-dim) transition-colors hover:text-(--text-on-dark)">
+                        Changelog
+                    </Link>
                     <a
                         href="https://www.npmjs.com/package/react-wip-ui"
                         target="_blank"

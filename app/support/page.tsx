@@ -17,7 +17,8 @@ const ogDescription =
 const ogGeneratorParams = new URLSearchParams({
   title: "Support & Feedback",
   description: "Questions, bug reports, or feature requests",
-  theme: "glass",
+  theme: "memphis",
+  site: "React-WIP-UI"
 });
 
 export const metadata: Metadata = {
