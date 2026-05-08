@@ -26,7 +26,7 @@ export default function Hero() {
 
                 <p className="animate-fade-up [animation-delay:0.3s] mx-auto mb-10 max-w-3xl text-sm lg:text-lg text-(--text-muted)">
                     A composable React component library for annotating in-development
-                    features. SSR-safe, accessible, and designed for Next.js App Router.
+                    features. SSR-safe, accessible, and designed for effortless setup.
                 </p>
 
                 <div className="animate-fade-up [animation-delay:0.45s] flex flex-col items-center gap-6">
