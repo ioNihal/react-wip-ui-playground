@@ -32,8 +32,7 @@ export default function Preview() {
                         <span className="text-(--accent)">30 seconds</span>
                     </h2>
                     <p className="mb-6 text-(--text-muted)">
-                        No theme setup, no providers required. Import one stylesheet and
-                        start marking features.
+                        No configuration, no setup, just install and import the component.
                     </p>
                     <div className="flex flex-col gap-4">
                         {STEPS.map((step, i) => (
