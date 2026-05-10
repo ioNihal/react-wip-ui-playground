@@ -21,7 +21,7 @@ const HOST_URL =
 
 const ogGeneratorParams = new URLSearchParams({
   title: "React-WIP-UI",
-  description: "Work In Progress UI Components",
+  description: "React Component Library for Modern UI",
   theme: "memphis",
   site: "React-WIP-UI"
 });
@@ -34,16 +34,17 @@ export const metadata: Metadata = {
     template: "%s · React-WIP-UI",
   },
   description:
-    "Production-ready Work In Progress UI components for React & Next.js. Explore, test, and integrate components instantly.",
+    "React-WIP-UI is an open-source React component library featuring animated, experimental, and modern UI components for React and Next.js. Built with Tailwind CSS.",
   keywords: [
-    "react",
-    "next.js",
-    "ui library",
-    "work in progress",
-    "wip",
-    "components",
-    "frontend",
-    "tailwind css",
+    "React-WIP-UI",
+    "react ui components",
+    "react component library",
+    "nextjs ui library",
+    "animated ui components",
+    "modern ui library",
+    "tailwind react components",
+    "react components",
+    "next.js components",
   ],
   authors: [{ name: "React-WIP-UI Team" }],
   creator: "React-WIP-UI",
@@ -53,9 +54,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "React-WIP-UI",
     url: "/",
-    title: "React-WIP-UI",
+    title: "React-WIP-UI - React Component Library",
     description:
-      "Production-ready Work In Progress UI components for React & Next.js.",
+      "An open-source React component library featuring animated, experimental, and modern UI components for React and Next.js.",
     images: [
       {
         url: `https://rendercard.vercel.app/api/rendercard?${ogGeneratorParams.toString()}`,
@@ -68,9 +69,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "React-WIP-UI",
+    title: "React-WIP-UI - React Component Library",
     description:
-      "Production-ready Work In Progress UI components for React & Next.js.",
+      "An open-source React component library featuring animated, experimental, and modern UI components for React and Next.js.",
     images: [`https://rendercard.vercel.app/api/rendercard?${ogGeneratorParams.toString()}`],
   },
 
@@ -91,7 +92,7 @@ export default function RootLayout({
     "@type": "SoftwareSourceCode",
     name: "React-WIP-UI",
     description:
-      "Production-ready Work In Progress UI components for React & Next.js. Explore, test, and integrate components instantly.",
+      "An open-source React component library featuring animated, experimental, and modern UI components for React and Next.js. Built with Tailwind CSS.",
     url: HOST_URL,
     programmingLanguage: [
       {

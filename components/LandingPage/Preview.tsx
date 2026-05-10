@@ -8,10 +8,6 @@ const STEPS = [
         label: "Install the package",
     },
     {
-        code: "import 'react-wip-ui/styles.css';",
-        label: "Import the stylesheet once in your root layout",
-    },
-    {
         code: `import { Ribbon } from 'react-wip-ui';
 
 <div style={{ position: 'relative' }}>
